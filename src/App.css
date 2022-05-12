@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+/* This maintains the 16:9 aspect ratio */
+.canvasWrapper {
+  position: absolute;
+  margin: auto;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  width: 100vw; 
+  height: 56.25vw; /* 100 * 9/16 */
+  max-height: 100vh;
+  max-width: 177.78vh; /* 100 * 16/9 */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+canvas {
+  width: 100%;
+  height: 100%;
+  background: #0003;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Wrapper for the draggable divs */
+.draggableWrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* The div that tracks each image */
+.draggable {
+  position: absolute;
+  box-sizing: border-box;
+  cursor: grab;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.draggable.active {
+  border: 2px solid green;
+  z-index: 2;
+  cursor: grabbing;
 }
